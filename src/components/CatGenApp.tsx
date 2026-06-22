@@ -1,17 +1,20 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
-import { type Costume } from "@/lib/costumes";
-import CostumePicker from "@/components/CostumePicker";
-import UploadZone from "@/components/UploadZone";
+import { COSTUMES, type Costume } from "@/lib/costumes";
 import GeneratingScreen from "@/components/GeneratingScreen";
+import UploadZone from "@/components/UploadZone";
 
 type AppState = "idle" | "generating" | "done" | "error";
+
+function pickRandom<T>(arr: T[]): T {
+  return arr[Math.floor(Math.random() * arr.length)];
+}
 
 export default function CatGenApp() {
   const [imageFile, setImageFile] = useState<File | null>(null);
   const [previewUrl, setPreviewUrl] = useState<string | null>(null);
-  const [selectedCostume, setSelectedCostume] = useState<Costume | null>(null);
+  const [activeCostume, setActiveCostume] = useState<Costume | null>(null);
   const [appState, setAppState] = useState<AppState>("idle");
   const [resultUrl, setResultUrl] = useState<string | null>(null);
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
@@ -42,16 +45,21 @@ export default function CatGenApp() {
   }, []);
 
   const handleGenerate = useCallback(async () => {
-    if (!imageFile || !selectedCostume) return;
+    if (!imageFile) return;
+
+    // Pick a random costume every time
+    const costume = pickRandom(COSTUMES);
+    setActiveCostume(costume);
     setAppState("generating");
     setResultUrl(null);
     setErrorMsg(null);
     startProgress();
+
     try {
       const form = new FormData();
       form.append("image", imageFile);
-      form.append("prompt", selectedCostume.prompt);
-      form.append("costumeId", selectedCostume.id);
+      form.append("prompt", costume.prompt);
+      form.append("costumeId", costume.id);
       const res = await fetch("/api/generate", { method: "POST", body: form });
       const data = await res.json();
       if (!res.ok || data.error) throw new Error(data.error || "Generation failed");
@@ -63,52 +71,30 @@ export default function CatGenApp() {
       setErrorMsg(err instanceof Error ? err.message : "Something went wrong");
       setAppState("error");
     }
-  }, [imageFile, selectedCostume, startProgress, stopProgress]);
+  }, [imageFile, startProgress, stopProgress]);
 
   const handleDownload = useCallback(() => {
     if (!resultUrl) return;
     const a = document.createElement("a");
     a.href = resultUrl;
-    a.download = `shichi-${selectedCostume?.id ?? "costume"}-${Date.now()}.png`;
+    a.download = `shichi-${activeCostume?.id ?? "costume"}-${Date.now()}.png`;
     a.click();
-  }, [resultUrl, selectedCostume]);
+  }, [resultUrl, activeCostume]);
 
   useEffect(() => () => { if (previewUrl) URL.revokeObjectURL(previewUrl); }, [previewUrl]);
 
-  const canGenerate = !!imageFile && !!selectedCostume && appState !== "generating";
+  const canGenerate = !!imageFile && appState !== "generating";
 
   return (
-    <div
-      style={{
-        display: "grid",
-        gridTemplateColumns: "1fr 1fr",
-        gap: 24,
-        alignItems: "start",
-      }}
-    >
-      {/* ── Grid 1: Controls ── */}
-      <div className="glass-card" style={{ padding: 28, display: "flex", flexDirection: "column", gap: 24 }}>
+    <div className="studio-grid">
 
-        {/* Upload */}
+      {/* ── Left: Upload + Generate ── */}
+      <div className="glass-card studio-left">
         <div>
-          <p style={{ fontSize: 12, fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.1em", color: "var(--text-muted)", marginBottom: 12 }}>
-            01 — Upload Photo
-          </p>
+          <p className="studio-step-label">Upload your cat photo</p>
           <UploadZone onImageSelect={handleImageSelect} previewUrl={previewUrl} />
         </div>
 
-        {/* Divider */}
-        <div style={{ height: 1, background: "var(--border)" }} />
-
-        {/* Costume picker */}
-        <div>
-          <p style={{ fontSize: 12, fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.1em", color: "var(--text-muted)", marginBottom: 12 }}>
-            02 — Pick Costume
-          </p>
-          <CostumePicker selected={selectedCostume} onSelect={setSelectedCostume} />
-        </div>
-
-        {/* Generate button */}
         <button
           className="btn-primary"
           disabled={!canGenerate}
@@ -117,85 +103,105 @@ export default function CatGenApp() {
         >
           {appState === "generating" ? (
             <span style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 10 }}>
-              <span className="spin">⚙️</span> Generating...
+              <span className="spin">✦</span> Generating...
             </span>
           ) : (
-            "✨ Generate Costume"
+            "✨ Generate Random Costume"
           )}
         </button>
+
+        {appState === "idle" && imageFile && (
+          <p style={{ fontSize: 12, color: "var(--text-light)", textAlign: "center" }}>
+            A random costume is picked every time 🎲
+          </p>
+        )}
       </div>
 
-      {/* ── Grid 2: Result ── */}
-      <div className="glass-card" style={{ padding: 28, minHeight: 560 }}>
+      {/* ── Right: Result ── */}
+      <div className="glass-card studio-right">
 
         {/* Idle */}
         {appState === "idle" && (
-          <div style={{ height: "100%", minHeight: 500, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: 20, textAlign: "center" }}>
-            <div style={{ fontSize: 72, animation: "float 3s ease-in-out infinite" }}>🎨</div>
+          <div className="studio-placeholder">
+            <div style={{ fontSize: 56, animation: "float 3s ease-in-out infinite" }}>🎨</div>
             <div>
-              <h3 style={{ fontSize: 20, fontWeight: 800, color: "var(--text)", marginBottom: 10 }}>
+              <h3 style={{ fontSize: 17, fontWeight: 800, color: "var(--text)", marginBottom: 8 }}>
                 Your creation appears here
               </h3>
-              <p style={{ fontSize: 14, color: "var(--text-muted)", maxWidth: 260, lineHeight: 1.6 }}>
-                Upload a cat photo, pick a costume, hit generate ✨
+              <p style={{ fontSize: 13, color: "var(--text-muted)", maxWidth: 240, lineHeight: 1.6, margin: "0 auto" }}>
+                Upload a photo, hit generate — a surprise costume is picked for you ✨
               </p>
             </div>
             <div style={{ display: "flex", gap: 6, flexWrap: "wrap", justifyContent: "center" }}>
-              {["🦾 Iron Man", "🍜 Naruto", "⚡ Thor", "🧙 Wizard"].map((t) => (
-                <span key={t} className="badge badge-purple">{t}</span>
+              {["🦾 Iron Man", "🍜 Naruto", "⚡ Thor", "🧙 Wizard", "🚀 Astronaut"].map((t) => (
+                <span key={t} className="badge badge-gold" style={{ fontSize: 11 }}>{t}</span>
               ))}
             </div>
           </div>
         )}
 
         {/* Generating */}
-        {appState === "generating" && selectedCostume && (
+        {appState === "generating" && activeCostume && (
           <GeneratingScreen
-            costumeName={selectedCostume.name}
-            costumeEmoji={selectedCostume.emoji}
-            accentColor={selectedCostume.accent}
+            costumeName={activeCostume.name}
+            costumeEmoji={activeCostume.emoji}
+            accentColor={activeCostume.accent}
             progress={progress}
           />
         )}
 
         {/* Error */}
         {appState === "error" && (
-          <div className="fade-in-up" style={{ height: "100%", minHeight: 400, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: 16, textAlign: "center" }}>
-            <span style={{ fontSize: 56 }}>😿</span>
+          <div className="studio-placeholder fade-in-up">
+            <span style={{ fontSize: 48 }}>😿</span>
             <div>
-              <h3 style={{ fontSize: 18, fontWeight: 800, color: "#f87171", marginBottom: 10 }}>Something went wrong</h3>
-              <p style={{ fontSize: 13, color: "var(--text-muted)", padding: "10px 16px", background: "rgba(248,113,113,0.07)", border: "1px solid rgba(248,113,113,0.2)", borderRadius: 10, maxWidth: 300 }}>
+              <h3 style={{ fontSize: 15, fontWeight: 800, color: "#dc2626", marginBottom: 8 }}>
+                Something went wrong
+              </h3>
+              <p style={{
+                fontSize: 13, color: "var(--text-muted)",
+                padding: "10px 14px",
+                background: "#fef2f2",
+                border: "1px solid #fecaca",
+                borderRadius: 10, maxWidth: 280, lineHeight: 1.5,
+              }}>
                 {errorMsg}
               </p>
             </div>
-            <div style={{ display: "flex", gap: 10 }}>
-              <button className="btn-primary" style={{ padding: "12px 24px", fontSize: 14 }} onClick={handleGenerate}>🔄 Retry</button>
-              <button className="btn-secondary" style={{ padding: "12px 24px", fontSize: 14 }} onClick={() => setAppState("idle")}>Reset</button>
+            <div style={{ display: "flex", gap: 10, flexWrap: "wrap", justifyContent: "center" }}>
+              <button className="btn-primary" style={{ padding: "11px 22px", fontSize: 14, width: "auto" }} onClick={handleGenerate}>
+                🔄 Try Again
+              </button>
+              <button className="btn-secondary" style={{ padding: "11px 22px", fontSize: 14 }} onClick={() => setAppState("idle")}>
+                Reset
+              </button>
             </div>
           </div>
         )}
 
         {/* Done */}
-        {appState === "done" && resultUrl && selectedCostume && previewUrl && (
-          <div className="fade-in-up" style={{ display: "flex", flexDirection: "column", gap: 16 }}>
-            {/* Label */}
+        {appState === "done" && resultUrl && activeCostume && previewUrl && (
+          <div className="fade-in-up" style={{ display: "flex", flexDirection: "column", gap: 14, height: "100%" }}>
+            {/* Costume label */}
             <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
-              <span style={{ fontSize: 24 }}>{selectedCostume.emoji}</span>
+              <span style={{ fontSize: 22 }}>{activeCostume.emoji}</span>
               <div style={{ flex: 1 }}>
-                <h3 style={{ fontSize: 17, fontWeight: 800, color: "var(--text)" }}>{selectedCostume.name} Shichi!</h3>
-                <p style={{ fontSize: 12, color: "var(--text-muted)" }}>AI generation complete</p>
+                <h3 style={{ fontSize: 15, fontWeight: 800, color: "var(--text)" }}>
+                  {activeCostume.name} Shichi!
+                </h3>
+                <p style={{ fontSize: 11, color: "var(--text-muted)" }}>AI generation complete</p>
               </div>
               <span className="badge badge-gold">✓ Done</span>
             </div>
 
             {/* Before / After */}
-            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 10 }}>
-              <div className="image-container" style={{ height: 200 }}>
+            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 8 }}>
+              <div className="image-container" style={{ aspectRatio: "1/1" }}>
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img src={previewUrl} alt="Original" style={{ objectFit: "cover" }} />
                 <span className="image-label">Before</span>
               </div>
-              <div className="image-container" style={{ height: 200 }}>
+              <div className="image-container" style={{ aspectRatio: "1/1" }}>
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img src={resultUrl} alt="Result" style={{ objectFit: "cover" }} />
                 <span className="image-label">After ✨</span>
@@ -203,18 +209,31 @@ export default function CatGenApp() {
             </div>
 
             {/* Full result */}
-            <div className="image-container">
+            <div className="image-container" style={{ flex: 1, minHeight: 180 }}>
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src={resultUrl} alt={`Shichi as ${selectedCostume.name}`} style={{ maxHeight: 320, objectFit: "contain", background: "rgba(0,0,0,0.4)" }} />
+              <img
+                src={resultUrl}
+                alt={`Shichi as ${activeCostume.name}`}
+                style={{ objectFit: "contain", background: "var(--bg-surface)" }}
+              />
             </div>
 
             {/* Actions */}
             <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 10 }}>
-              <button className="btn-gold" style={{ padding: "13px", fontSize: 15, borderRadius: 12 }} onClick={handleDownload} id="download-btn">
+              <button
+                className="btn-primary"
+                style={{ padding: "13px", fontSize: 14, borderRadius: 12 }}
+                onClick={handleDownload}
+                id="download-btn"
+              >
                 ⬇️ Download
               </button>
-              <button className="btn-secondary" style={{ padding: "13px", fontSize: 15 }} onClick={() => { setAppState("idle"); setResultUrl(null); }}>
-                🎭 Try Another
+              <button
+                className="btn-secondary"
+                style={{ padding: "13px", fontSize: 14 }}
+                onClick={handleGenerate}
+              >
+                🎲 Try Another
               </button>
             </div>
           </div>

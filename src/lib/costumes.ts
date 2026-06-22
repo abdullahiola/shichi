@@ -16,6 +16,9 @@ export const COSTUME_CATEGORIES = [
   { id: "scifi", label: "🚀 Sci-Fi" },
 ] as const;
 
+// Prompts written as FLUX Kontext edit instructions:
+// "Dress the cat in X" — the model preserves the cat's identity and adds the costume
+
 export const COSTUMES: Costume[] = [
   // Avengers
   {
@@ -26,7 +29,7 @@ export const COSTUMES: Costume[] = [
     accent: "#ef4444",
     description: "Red & gold nano-suit",
     prompt:
-      "a cat wearing a detailed Iron Man red and gold armor suit, Arc reactor on chest, superhero costume, cinematic lighting, high detail, 8k, cute cat face visible",
+      "Dress the cat in a miniature Iron Man red and gold armored suit. Keep the cat's face, fur, eyes, and body completely unchanged. Only add the costume clothing around the cat's body.",
   },
   {
     id: "thor",
@@ -36,7 +39,7 @@ export const COSTUMES: Costume[] = [
     accent: "#3b82f6",
     description: "God of Thunder armor",
     prompt:
-      "a cat dressed as Thor the Avenger, wearing Norse warrior armor with red cape and holding Mjolnir, lightning in background, cinematic, 8k, adorable cat face",
+      "Dress the cat in a miniature Thor Norse warrior costume with silver armor and a red cape. Keep the cat's face, fur, eyes, and body completely unchanged. Only add the costume clothing around the cat.",
   },
   {
     id: "black-widow",
@@ -46,7 +49,7 @@ export const COSTUMES: Costume[] = [
     accent: "#6b7280",
     description: "Elite spy suit",
     prompt:
-      "a cat wearing a sleek black tactical spy suit like Black Widow, red hourglass emblem, utility belt, SHIELD badge, cinematic dark lighting, 8k cute cat",
+      "Dress the cat in a miniature sleek black tactical spy suit with a utility belt. Keep the cat's face, fur, eyes, and body completely unchanged. Only add the costume clothing around the cat.",
   },
   {
     id: "captain-america",
@@ -56,7 +59,7 @@ export const COSTUMES: Costume[] = [
     accent: "#1d4ed8",
     description: "Star-spangled suit",
     prompt:
-      "a cat wearing Captain America blue uniform with star emblem on chest, holding a vibranium shield with star, patriotic Avenger costume, 8k, detailed, cute cat",
+      "Dress the cat in a miniature Captain America blue uniform with a white star on the chest and a small shield prop. Keep the cat's face, fur, eyes, and body completely unchanged. Only add the costume around the cat.",
   },
   {
     id: "thanos",
@@ -66,7 +69,7 @@ export const COSTUMES: Costume[] = [
     accent: "#7c3aed",
     description: "Infinity Gauntlet",
     prompt:
-      "a cat wearing Thanos purple titan armor, golden Infinity Gauntlet on paw with all infinity stones glowing, powerful villain costume, epic cinematic lighting, 8k",
+      "Dress the cat in a miniature purple Thanos titan armor outfit and place a small golden Infinity Gauntlet on one paw. Keep the cat's face, fur, eyes, and body completely unchanged. Only add the costume around the cat.",
   },
   {
     id: "spider-man",
@@ -76,7 +79,7 @@ export const COSTUMES: Costume[] = [
     accent: "#dc2626",
     description: "Web-slinger suit",
     prompt:
-      "a cat wearing Spider-Man red and blue suit with web pattern, shooting webs from paw, New York City in background, dynamic pose, Marvel superhero, 8k detail",
+      "Dress the cat in a miniature Spider-Man red and blue suit with web patterns. Keep the cat's face, fur, eyes, and body completely unchanged. Only add the costume clothing around the cat.",
   },
 
   // Anime
@@ -88,7 +91,7 @@ export const COSTUMES: Costume[] = [
     accent: "#f97316",
     description: "Hokage ninja outfit",
     prompt:
-      "a cat wearing Naruto Uzumaki orange and black ninja jumpsuit from Naruto anime, ninja headband, whisker marks on face, Konoha leaf village symbol, 8k anime art style",
+      "Dress the cat in a miniature Naruto orange and black ninja jumpsuit and place a small ninja headband on its head. Keep the cat's face, fur, eyes, and body completely unchanged. Only add the costume around the cat.",
   },
   {
     id: "goku",
@@ -98,7 +101,7 @@ export const COSTUMES: Costume[] = [
     accent: "#f59e0b",
     description: "Super Saiyan mode",
     prompt:
-      "a cat dressed as Goku from Dragon Ball Z, wearing orange gi with blue belt, Super Saiyan golden spiky hair, power aura energy, Dragon Ball, 8k anime style",
+      "Dress the cat in a miniature orange Dragon Ball Z gi outfit with a blue belt. Keep the cat's face, fur, eyes, and body completely unchanged. Only add the costume clothing around the cat.",
   },
   {
     id: "sailor-moon",
@@ -108,7 +111,7 @@ export const COSTUMES: Costume[] = [
     accent: "#ec4899",
     description: "Magical girl uniform",
     prompt:
-      "a cat wearing Sailor Moon magical girl uniform, white leotard with blue sailor collar and red bow, crescent moon tiara, blonde pigtails wig, 8k cute anime style",
+      "Dress the cat in a miniature Sailor Moon magical girl uniform with a white leotard, blue sailor collar, and red bow. Keep the cat's face, fur, eyes, and body completely unchanged. Only add the costume around the cat.",
   },
   {
     id: "luffy",
@@ -118,7 +121,7 @@ export const COSTUMES: Costume[] = [
     accent: "#ef4444",
     description: "Pirate King outfit",
     prompt:
-      "a cat wearing Monkey D. Luffy outfit from One Piece, red vest, blue shorts, straw hat on head, pirate ship ocean background, Gear 5 transformation, 8k anime",
+      "Dress the cat in a miniature Monkey D. Luffy pirate outfit with a red vest and place a small straw hat on its head. Keep the cat's face, fur, eyes, and body completely unchanged. Only add the costume around the cat.",
   },
   {
     id: "demon-slayer",
@@ -128,7 +131,7 @@ export const COSTUMES: Costume[] = [
     accent: "#0ea5e9",
     description: "Demon slayer uniform",
     prompt:
-      "a cat wearing Tanjiro Kamado's green checkered haori and black demon slayer uniform from Kimetsu no Yaiba, holding nichirin blade, scar on forehead, 8k anime style",
+      "Dress the cat in a miniature green checkered haori cape and black demon slayer uniform from Demon Slayer. Keep the cat's face, fur, eyes, and body completely unchanged. Only add the costume around the cat.",
   },
   {
     id: "vegeta",
@@ -138,7 +141,7 @@ export const COSTUMES: Costume[] = [
     accent: "#a855f7",
     description: "Saiyan Prince armor",
     prompt:
-      "a cat wearing Vegeta Saiyan Prince blue armor from Dragon Ball Z, spiky widow's peak hair, white gloves and boots, power aura, royal proud pose, 8k anime",
+      "Dress the cat in a miniature Vegeta blue and white Saiyan armor from Dragon Ball Z. Keep the cat's face, fur, eyes, and body completely unchanged. Only add the costume around the cat.",
   },
 
   // Fantasy
@@ -150,7 +153,17 @@ export const COSTUMES: Costume[] = [
     accent: "#6366f1",
     description: "Ancient spell caster",
     prompt:
-      "a cat wearing a dark wizard robe with glowing arcane runes, tall pointed hat with stars, holding a glowing magical staff, spell book, mystical forest, 8k fantasy art",
+      "Dress the cat in a miniature dark wizard robe with mystical runes and place a tall pointed wizard hat with stars on its head. Keep the cat's face, fur, eyes, and body completely unchanged. Only add the costume around the cat.",
+  },
+  {
+    id: "vampire",
+    name: "Vampire",
+    category: "fantasy",
+    emoji: "🧛",
+    accent: "#dc2626",
+    description: "Vampire cape",
+    prompt:
+      "Dress the cat in a miniature vampire costume with a black cape lined in red and a red collar ruff around the neck. Keep the cat's face, fur, eyes, and body completely unchanged. Only add the cape costume around the cat.",
   },
   {
     id: "knight",
@@ -160,17 +173,7 @@ export const COSTUMES: Costume[] = [
     accent: "#9ca3af",
     description: "Shining plate armor",
     prompt:
-      "a cat wearing full shining medieval plate armor as a noble knight, holding a sword and shield with coat of arms, castle in background, dramatic lighting, 8k fantasy",
-  },
-  {
-    id: "dragon-rider",
-    name: "Dragon Rider",
-    category: "fantasy",
-    emoji: "🐲",
-    accent: "#10b981",
-    description: "Rider of dragons",
-    prompt:
-      "a cat wearing dragon rider leather armor and helmet, riding a majestic dragon in the sky, epic fantasy world, clouds, mountains below, 8k ultra detailed art",
+      "Dress the cat in a miniature shining silver medieval knight plate armor outfit. Keep the cat's face, fur, eyes, and body completely unchanged. Only add the armor costume around the cat.",
   },
   {
     id: "elven-ranger",
@@ -180,7 +183,7 @@ export const COSTUMES: Costume[] = [
     accent: "#84cc16",
     description: "Forest guardian",
     prompt:
-      "a cat dressed as a graceful elven ranger, wearing green leather armor with leaf motifs, holding a bow, pointed ears, enchanted forest background, 8k fantasy art",
+      "Dress the cat in a miniature green elven leather armor with leaf motifs and a small bow prop. Keep the cat's face, fur, eyes, and body completely unchanged. Only add the costume around the cat.",
   },
 
   // Sci-Fi
@@ -192,7 +195,7 @@ export const COSTUMES: Costume[] = [
     accent: "#22d3ee",
     description: "Force wielder",
     prompt:
-      "a cat dressed as a Jedi Master from Star Wars, wearing brown hooded robes, holding a glowing blue lightsaber, Death Star in background, cinematic lighting, 8k",
+      "Dress the cat in a miniature Jedi Master brown hooded robe and place a small glowing blue lightsaber prop near its paw. Keep the cat's face, fur, eyes, and body completely unchanged. Only add the costume around the cat.",
   },
   {
     id: "astronaut",
@@ -202,7 +205,7 @@ export const COSTUMES: Costume[] = [
     accent: "#64748b",
     description: "Space explorer",
     prompt:
-      "a cat wearing a NASA astronaut space suit with helmet, floating in outer space with Earth visible below, stars and nebula, realistic space photography style, 8k",
+      "Dress the cat in a miniature white NASA astronaut spacesuit. Keep the cat's face, fur, eyes, and body completely unchanged. Only add the spacesuit costume around the cat.",
   },
   {
     id: "cyberpunk",
@@ -212,7 +215,7 @@ export const COSTUMES: Costume[] = [
     accent: "#f43f5e",
     description: "Neon city hacker",
     prompt:
-      "a cat wearing a futuristic cyberpunk outfit, neon holographic jacket, cyber implants glowing, Night City neon lights background, rain, Blade Runner aesthetic, 8k",
+      "Dress the cat in a miniature futuristic neon cyberpunk jacket with glowing accents. Keep the cat's face, fur, eyes, and body completely unchanged. Only add the costume clothing around the cat.",
   },
   {
     id: "mandalorian",
@@ -222,6 +225,6 @@ export const COSTUMES: Costume[] = [
     accent: "#b45309",
     description: "Beskar armor warrior",
     prompt:
-      "a cat wearing Mandalorian beskar armor from The Mandalorian Star Wars series, iconic helmet, jetpack, blaster holster, desert planet, 8k ultra detailed cinematic",
+      "Dress the cat in a miniature Mandalorian beskar silver armor outfit and place a small T-visor helmet on its head. Keep the cat's face, fur, eyes, and body completely unchanged. Only add the armor costume around the cat.",
   },
 ];

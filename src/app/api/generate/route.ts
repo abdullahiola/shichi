@@ -32,47 +32,48 @@ export async function POST(request: NextRequest) {
     const mimeType = imageFile.type || "image/jpeg";
     const dataUrl = `data:${mimeType};base64,${base64}`;
 
+    // Append "looks like a real photo" directive to every prompt
+    const photoPrompt =
+      prompt +
+      " The miniature costume should look like a real physical fabric outfit actually placed on the cat. " +
+      "The final image must look like a natural photograph taken with a camera — authentic photo grain, natural ambient lighting, realistic fabric texture and shadows, no glowing effects, no digital art style, no AI illustration aesthetics. " +
+      "Keep the background exactly as it is in the original photo. Do not alter the cat in any way except adding the outfit."
+
     console.log(`Generating costume: ${costumeId} with prompt: ${prompt.substring(0, 80)}...`);
 
-    // Use Replicate's SDXL img2img model
+    // Use FLUX Kontext Pro — preserves the cat's identity while applying costume edits
     const output = await replicate.run(
-      "stability-ai/sdxl:39ed52f2a78e934b3ba6e2a89f5b1c712de7dfea535525255b1aa35c5565e08b",
+      "black-forest-labs/flux-kontext-pro",
       {
         input: {
-          image: dataUrl,
-          prompt: prompt + ", photorealistic, masterpiece, best quality, detailed fur texture",
-          negative_prompt:
-            "blurry, low quality, deformed, ugly, bad anatomy, extra limbs, watermark, text, signature",
-          prompt_strength: 0.75,
-          num_inference_steps: 40,
-          guidance_scale: 7.5,
-          scheduler: "K_EULER",
-          num_outputs: 1,
-          width: 1024,
-          height: 1024,
+          input_image: dataUrl,
+          prompt: photoPrompt,
+          output_format: "jpg",
+          output_quality: 90,
+          safety_tolerance: 6,
         },
       }
     );
 
-    // Output is an array of URLs
-    const outputUrls = output as string[];
-    if (!outputUrls || outputUrls.length === 0) {
+    // flux-kontext-pro returns a single URL string
+    const generatedUrl = output as unknown as string;
+    if (!generatedUrl) {
       return Response.json({ error: "No output generated" }, { status: 500 });
     }
 
-    const generatedUrl = outputUrls[0];
-
-    // Fetch the image and convert to base64 to avoid CORS issues
+    // Fetch and convert to base64 to avoid CORS issues
     const imgResponse = await fetch(generatedUrl);
     const imgBuffer = await imgResponse.arrayBuffer();
     const imgBase64 = Buffer.from(imgBuffer).toString("base64");
-    const imgDataUrl = `data:image/png;base64,${imgBase64}`;
+    const imgDataUrl = `data:image/jpeg;base64,${imgBase64}`;
 
     return Response.json({ imageUrl: imgDataUrl, success: true });
   } catch (error) {
     console.error("Generation error:", error);
-    const message =
-      error instanceof Error ? error.message : "Unknown error occurred";
+    let message = error instanceof Error ? error.message : "Unknown error occurred";
+    if (message.toLowerCase().includes("nsfw")) {
+      message = "Safety filter triggered. Hit \"Try Again\" — it usually works on the next attempt!";
+    }
     return Response.json({ error: message }, { status: 500 });
   }
 }

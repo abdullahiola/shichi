@@ -148,17 +148,10 @@ export default function GeneratingScreen({
 
       {/* Title */}
       <div style={{ textAlign: "center" }}>
-        <h3
-          style={{
-            fontSize: 22,
-            fontWeight: 800,
-            color: "var(--text-primary)",
-            marginBottom: 8,
-          }}
-        >
+        <h3 style={{ fontSize: 20, fontWeight: 800, color: "var(--text)", marginBottom: 8 }}>
           Dressing your cat as {costumeName}
         </h3>
-        <p style={{ fontSize: 14, color: "var(--text-secondary)" }}>
+        <p style={{ fontSize: 14, color: "var(--text-muted)" }}>
           {currentStep.label}...
         </p>
       </div>
@@ -174,20 +167,10 @@ export default function GeneratingScreen({
             }}
           />
         </div>
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "space-between",
-            marginTop: 8,
-            fontSize: 12,
-            color: "var(--text-secondary)",
-          }}
-        >
-          <span>{currentStep.label}</span>
-          <span style={{ color: accentColor, fontWeight: 700 }}>
-            {Math.round(progress)}%
-          </span>
-        </div>
+          <div style={{ display: "flex", justifyContent: "space-between", marginTop: 8, fontSize: 12, color: "var(--text-muted)" }}>
+            <span>{currentStep.label}</span>
+            <span style={{ color: "var(--orange)", fontWeight: 700 }}>{Math.round(progress)}%</span>
+          </div>
       </div>
 
       {/* Steps */}
@@ -201,24 +184,17 @@ export default function GeneratingScreen({
               borderRadius: 99,
               background:
                 i < stepIndex
-                  ? accentColor
+                  ? "var(--orange)"
                   : i === stepIndex
-                  ? `linear-gradient(90deg, ${accentColor}, #8b5cf6)`
-                  : "rgba(255,255,255,0.1)",
+                  ? `linear-gradient(90deg, var(--orange), #fbbf24)`
+                  : "var(--ash-light)",
               transition: "all 0.4s ease",
             }}
           />
         ))}
       </div>
 
-      <p
-        style={{
-          fontSize: 12,
-          color: "var(--text-secondary)",
-          opacity: 0.6,
-          textAlign: "center",
-        }}
-      >
+      <p style={{ fontSize: 12, color: "var(--text-light)", textAlign: "center" }}>
         This usually takes 20–40 seconds · AI magic in progress ✨
       </p>
     </div>

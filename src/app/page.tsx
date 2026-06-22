@@ -33,14 +33,14 @@ export default function HomePage() {
           <div className="hero-cat-ring" />
           <div className="hero-cat-ring-2" />
           <Image
-            src="/shichi.png"
-            alt="Shichi the cat - $SHICHI mascot"
+            src="/shichi.jpeg"
+            alt="Shichi — the real cat behind $SHICHI"
             width={380}
             height={380}
             className="hero-cat"
             priority
           />
-          <span className="hero-cat-badge pulse-ring">🚀 To the moon</span>
+
         </div>
 
         <div className="hero-badge">🐱 Introducing the next big meme coin</div>
@@ -85,16 +85,27 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Marquee ticker */}
-      <div className="marquee-wrap section" style={{ position: "relative", zIndex: 1 }}>
-        <div className="marquee-track">
-          {[...Array(2)].map((_, i) =>
-            ["$SHICHI", "🐱", "TO THE MOON", "💜", "COMMUNITY DRIVEN", "⚡", "MEME COIN", "🚀", "BUY NOW", "🌕", "SHICHI IS LIFE", "💎", "HOLD STRONG", "🔥"].map((t, j) => (
-              <span key={`${i}-${j}`} className={`marquee-item ${["🐱","💜","⚡","🚀","🌕","💎","🔥"].includes(t) ? "marquee-dot" : ""}`}>{t}</span>
-            ))
-          )}
+
+
+      {/* ── GENERATOR ── */}
+      <section style={{ position: "relative", zIndex: 1 }} id="generator">
+        <div className="generator-section">
+          <div className="generator-inner">
+            <div style={{ textAlign: "center", marginBottom: 48 }}>
+              <div className="section-label">AI-Powered Studio</div>
+              <h2 className="section-title">
+                Dress Shichi in<br />
+                <span>any costume 🎭</span>
+              </h2>
+              <p style={{ color: "var(--text-muted)", fontSize: 16, maxWidth: 480, margin: "12px auto 0" }}>
+                Upload a photo of your cat (or Shichi!) and transform them into Iron Man, Naruto,
+                a Jedi Master — over 20 costumes powered by Stable Diffusion XL.
+              </p>
+            </div>
+            <CatGenApp />
+          </div>
         </div>
-      </div>
+      </section>
 
       {/* ── ABOUT ── */}
       <section className="about-section section" id="about">
@@ -152,7 +163,7 @@ export default function HomePage() {
 
       {/* ── TOKENOMICS ── */}
       <section style={{ position: "relative", zIndex: 1 }} id="tokenomics">
-        <div className="tokenomics-section">
+        <div className="tokenomics-outer">
           <div className="tokenomics-inner">
             <div style={{ textAlign: "center", marginBottom: 8 }}>
               <div className="section-label">Token details</div>
@@ -248,26 +259,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── GENERATOR ── */}
-      <section style={{ position: "relative", zIndex: 1 }} id="generator">
-        <div className="generator-section">
-          <div className="generator-inner">
-            <div style={{ textAlign: "center", marginBottom: 48 }}>
-              <div className="section-label">AI-Powered Studio</div>
-              <h2 className="section-title">
-                Dress Shichi in<br />
-                <span>any costume 🎭</span>
-              </h2>
-              <p style={{ color: "var(--text-muted)", fontSize: 16, maxWidth: 480, margin: "12px auto 0" }}>
-                Upload a photo of your cat (or Shichi!) and transform them into Iron Man, Naruto,
-                a Jedi Master — over 20 costumes powered by Stable Diffusion XL.
-              </p>
-            </div>
 
-            <CatGenApp />
-          </div>
-        </div>
-      </section>
 
       {/* ── FOOTER ── */}
       <footer className="footer section">
