@@ -1,0 +1,281 @@
+- generic [active] [ref=e1]:
+  - navigation [ref=e2]:
+    - link "🐱 $SHICHI" [ref=e3] [cursor=pointer]:
+      - /url: "#"
+    - generic [ref=e4]:
+      - button "About" [ref=e5]
+      - button "Tokenomics" [ref=e6]
+      - button "Community" [ref=e7]
+      - button "Dress Shichi" [ref=e8]
+      - button "Buy $SHICHI" [ref=e9]
+  - generic [ref=e10]:
+    - generic [ref=e11]:
+      - img "Shichi the cat - $SHICHI mascot" [ref=e12]
+      - text: 🚀 To the moon
+    - generic [ref=e13]: 🐱 Introducing the next big meme coin
+    - heading "Meet Shichi $SHICHI" [level=1] [ref=e14]:
+      - text: Meet Shichi
+      - text: $SHICHI
+    - paragraph [ref=e15]:
+      - text: The
+      - strong [ref=e16]: cutest cat in crypto.
+      - text: Shichi went from a yellow litter box to the blockchain — and she's bringing her whole army of holders with her. 🌕
+    - generic [ref=e17]:
+      - button "🎨 Dress Shichi →" [ref=e18]
+      - button "📊 View Chart" [ref=e19]
+      - button "🐦 Twitter / X" [ref=e20]
+    - generic [ref=e21]:
+      - generic [ref=e22]: $0.0042Price
+      - generic [ref=e23]: 1BTotal Supply
+      - generic [ref=e24]: $4.2MMarket Cap
+      - generic [ref=e25]: 14.2KHolders
+  - generic [ref=e27]: $SHICHI🐱TO THE MOON💜COMMUNITY DRIVEN⚡MEME COIN🚀BUY NOW🌕SHICHI IS LIFE💎HOLD STRONG🔥$SHICHI🐱TO THE MOON💜COMMUNITY DRIVEN⚡MEME COIN🚀BUY NOW🌕SHICHI IS LIFE💎HOLD STRONG🔥
+  - generic [ref=e28]:
+    - generic [ref=e29]:
+      - generic [ref=e30]: About the project
+      - heading "Not just a cat. A movement." [level=2] [ref=e31]:
+        - text: Not just a cat.
+        - text: A movement.
+    - generic [ref=e32]:
+      - generic [ref=e33]:
+        - paragraph [ref=e34]:
+          - text: Shichi is a
+          - strong [ref=e35]: real fluffy grey-and-white kitten
+          - text: who became famous for standing in her yellow litter box with both paws raised — looking like she owns the whole world. Because honestly? She does.
+        - paragraph [ref=e36]:
+          - strong [ref=e37]: $SHICHI
+          - text: is a community-driven meme token built on Solana, inspired by the most iconic cat pose on the internet. No VCs, no insiders, no pre-mine — just Shichi, the blockchain, and an army of degens who believe in a cat.
+        - paragraph [ref=e38]:
+          - text: The
+          - strong [ref=e39]: CatGen AI Studio
+          - text: below lets you dress Shichi up in anything — Avengers armor, anime uniforms, fantasy robes — and share her with the world. Because why hold a boring token when you can hold one with a cat in an Iron Man suit?
+        - generic [ref=e40]:
+          - generic [ref=e41]: ✓ Community Owned
+          - generic [ref=e42]: ✓ Solana Chain
+          - generic [ref=e43]: ✓ No Presale
+          - generic [ref=e44]: ✓ LP Burned
+      - generic [ref=e45]:
+        - generic [ref=e46]:
+          - text: 🔥
+          - heading "Liquidity Burned" [level=3] [ref=e47]
+          - paragraph [ref=e48]: LP tokens permanently burned. Nobody rugging this ship.
+        - generic [ref=e49]:
+          - text: 🐱
+          - heading "Real Cat Mascot" [level=3] [ref=e50]
+          - paragraph [ref=e51]: Shichi is a real cat with a real personality and real paw energy.
+        - generic [ref=e52]:
+          - text: 🎨
+          - heading "AI Costume Studio" [level=3] [ref=e53]
+          - paragraph [ref=e54]: Dress Shichi in any costume using AI — the first meme coin with an AI art tool.
+        - generic [ref=e55]:
+          - text: 💎
+          - heading "Diamond Paws" [level=3] [ref=e56]
+          - paragraph [ref=e57]: Built for holders. Long-term vision with a community that doesn't sleep.
+        - generic [ref=e58]:
+          - text: 🚀
+          - heading "Fair Launch" [level=3] [ref=e59]
+          - paragraph [ref=e60]: No team allocation. No VC bags. 100% community from day one.
+        - generic [ref=e61]:
+          - text: 🌕
+          - heading "Moon Roadmap" [level=3] [ref=e62]
+          - paragraph [ref=e63]: CEX listings, merch, IRL Shichi events, and beyond.
+  - generic [ref=e66]:
+    - generic [ref=e67]:
+      - generic [ref=e68]: Token details
+      - heading "Tokenomics so simple even your cat gets it" [level=2] [ref=e69]:
+        - text: Tokenomics so simple
+        - text: even your cat gets it
+      - paragraph [ref=e70]: No funny business. No hidden wallets. Just vibes and cat energy.
+    - generic [ref=e71]:
+      - generic [ref=e72]:
+        - generic [ref=e73]: 🏦
+        - text: 1,000,000,000Total Supply
+        - paragraph [ref=e74]: One billion $SHICHI tokens
+      - generic [ref=e75]:
+        - generic [ref=e76]: 🔥
+        - text: 100%LP Burned
+        - paragraph [ref=e77]: Liquidity locked forever
+      - generic [ref=e78]:
+        - generic [ref=e79]: 👥
+        - text: 0%Team Tokens
+        - paragraph [ref=e80]: Community owns everything
+      - generic [ref=e81]:
+        - generic [ref=e82]: 💸
+        - text: 5%Buy/Sell Tax
+        - paragraph [ref=e83]: 3% marketing · 2% dev
+    - generic [ref=e84]:
+      - text: CASHiCH1...pump
+      - button "📋 Copy" [ref=e85]
+  - generic [ref=e86]:
+    - generic [ref=e87]: Join the army
+    - heading "The Shichi Army is waiting for you 🐾" [level=2] [ref=e88]:
+      - text: The Shichi Army is
+      - text: waiting for you 🐾
+    - paragraph [ref=e89]: Join tens of thousands of holders who believe in the power of a fluffy cat with her paws up.
+    - generic [ref=e90]:
+      - link "🐦 Twitter / X @ShichiToken" [ref=e91] [cursor=pointer]:
+        - /url: "#"
+        - text: 🐦
+        - generic [ref=e92]:
+          - generic [ref=e93]: Twitter / X
+          - generic [ref=e94]: "@ShichiToken"
+      - link "💬 Telegram t.me/ShichiToken" [ref=e95] [cursor=pointer]:
+        - /url: "#"
+        - text: 💬
+        - generic [ref=e96]:
+          - generic [ref=e97]: Telegram
+          - generic [ref=e98]: t.me/ShichiToken
+      - link "🎮 Discord discord.gg/shichi" [ref=e99] [cursor=pointer]:
+        - /url: "#"
+        - text: 🎮
+        - generic [ref=e100]:
+          - generic [ref=e101]: Discord
+          - generic [ref=e102]: discord.gg/shichi
+      - link "📊 DexScreener Chart →" [ref=e103] [cursor=pointer]:
+        - /url: "#"
+        - text: 📊
+        - generic [ref=e104]:
+          - generic [ref=e105]: DexScreener
+          - generic [ref=e106]: Chart →
+    - generic [ref=e107]:
+      - paragraph [ref=e108]: 😹
+      - paragraph [ref=e109]: “I don't always hold meme coins...”
+      - paragraph [ref=e110]: “...but when I do, I hold $SHICHI”
+      - generic [ref=e111]:
+        - generic [ref=e112]: 🐱 Shichi Approved
+        - generic [ref=e113]: 💜 Community Meme
+  - generic [ref=e116]:
+    - generic [ref=e117]:
+      - generic [ref=e118]: AI-Powered Studio
+      - heading "Dress Shichi in any costume 🎭" [level=2] [ref=e119]:
+        - text: Dress Shichi in
+        - text: any costume 🎭
+      - paragraph [ref=e120]: Upload a photo of your cat (or Shichi!) and transform them into Iron Man, Naruto, a Jedi Master — over 20 costumes powered by Stable Diffusion XL.
+    - generic [ref=e122]:
+      - generic [ref=e123]:
+        - generic [ref=e124]:
+          - generic [ref=e125]:
+            - generic [ref=e126]: 📸
+            - generic [ref=e127]:
+              - heading "Step 1 — Upload a Cat" [level=3] [ref=e128]
+              - paragraph [ref=e129]: Best with clear, well-lit photos
+          - generic [ref=e131] [cursor=pointer]:
+            - generic [ref=e132]: 🐱
+            - paragraph [ref=e133]: Drop your cat photo here
+            - paragraph [ref=e134]: or click to browse · PNG, JPG, WEBP
+            - button "📂 Choose Photo" [ref=e135]
+        - generic [ref=e136]:
+          - generic [ref=e137]:
+            - generic [ref=e138]: 🎭
+            - generic [ref=e139]:
+              - heading "Step 2 — Pick a Costume" [level=3] [ref=e140]
+              - paragraph [ref=e141]: 20 costumes · 4 categories
+          - generic [ref=e142]:
+            - generic [ref=e143]:
+              - button "All" [ref=e144] [cursor=pointer]
+              - button "⚡ Avengers" [ref=e145] [cursor=pointer]
+              - button "🌸 Anime" [ref=e146] [cursor=pointer]
+              - button "🔮 Fantasy" [ref=e147] [cursor=pointer]
+              - button "🚀 Sci-Fi" [ref=e148] [cursor=pointer]
+            - generic [ref=e149]:
+              - button "🦾 Iron Man Red & gold nano-suit" [ref=e150] [cursor=pointer]:
+                - generic [ref=e152]: 🦾
+                - paragraph [ref=e153]: Iron Man
+                - paragraph [ref=e154]: Red & gold nano-suit
+              - button "⚡ Thor God of Thunder armor" [ref=e155] [cursor=pointer]:
+                - generic [ref=e157]: ⚡
+                - paragraph [ref=e158]: Thor
+                - paragraph [ref=e159]: God of Thunder armor
+              - button "🕷️ Black Widow Elite spy suit" [ref=e160] [cursor=pointer]:
+                - generic [ref=e162]: 🕷️
+                - paragraph [ref=e163]: Black Widow
+                - paragraph [ref=e164]: Elite spy suit
+              - button "🛡️ Captain America Star-spangled suit" [ref=e165] [cursor=pointer]:
+                - generic [ref=e167]: 🛡️
+                - paragraph [ref=e168]: Captain America
+                - paragraph [ref=e169]: Star-spangled suit
+              - button "💜 Thanos Infinity Gauntlet" [ref=e170] [cursor=pointer]:
+                - generic [ref=e172]: 💜
+                - paragraph [ref=e173]: Thanos
+                - paragraph [ref=e174]: Infinity Gauntlet
+              - button "🕸️ Spider-Man Web-slinger suit" [ref=e175] [cursor=pointer]:
+                - generic [ref=e177]: 🕸️
+                - paragraph [ref=e178]: Spider-Man
+                - paragraph [ref=e179]: Web-slinger suit
+              - button "🍜 Naruto Hokage ninja outfit" [ref=e180] [cursor=pointer]:
+                - generic [ref=e182]: 🍜
+                - paragraph [ref=e183]: Naruto
+                - paragraph [ref=e184]: Hokage ninja outfit
+              - button "🐉 Goku Super Saiyan mode" [ref=e185] [cursor=pointer]:
+                - generic [ref=e187]: 🐉
+                - paragraph [ref=e188]: Goku
+                - paragraph [ref=e189]: Super Saiyan mode
+              - button "🌙 Sailor Moon Magical girl uniform" [ref=e190] [cursor=pointer]:
+                - generic [ref=e192]: 🌙
+                - paragraph [ref=e193]: Sailor Moon
+                - paragraph [ref=e194]: Magical girl uniform
+              - button "🏴‍☠️ Luffy Pirate King outfit" [ref=e195] [cursor=pointer]:
+                - generic [ref=e197]: 🏴‍☠️
+                - paragraph [ref=e198]: Luffy
+                - paragraph [ref=e199]: Pirate King outfit
+              - button "🌊 Tanjiro Demon slayer uniform" [ref=e200] [cursor=pointer]:
+                - generic [ref=e202]: 🌊
+                - paragraph [ref=e203]: Tanjiro
+                - paragraph [ref=e204]: Demon slayer uniform
+              - button "👑 Vegeta Saiyan Prince armor" [ref=e205] [cursor=pointer]:
+                - generic [ref=e207]: 👑
+                - paragraph [ref=e208]: Vegeta
+                - paragraph [ref=e209]: Saiyan Prince armor
+              - button "🧙 Dark Wizard Ancient spell caster" [ref=e210] [cursor=pointer]:
+                - generic [ref=e212]: 🧙
+                - paragraph [ref=e213]: Dark Wizard
+                - paragraph [ref=e214]: Ancient spell caster
+              - button "⚔️ Knight Shining plate armor" [ref=e215] [cursor=pointer]:
+                - generic [ref=e217]: ⚔️
+                - paragraph [ref=e218]: Knight
+                - paragraph [ref=e219]: Shining plate armor
+              - button "🐲 Dragon Rider Rider of dragons" [ref=e220] [cursor=pointer]:
+                - generic [ref=e222]: 🐲
+                - paragraph [ref=e223]: Dragon Rider
+                - paragraph [ref=e224]: Rider of dragons
+              - button "🏹 Elven Ranger Forest guardian" [ref=e225] [cursor=pointer]:
+                - generic [ref=e227]: 🏹
+                - paragraph [ref=e228]: Elven Ranger
+                - paragraph [ref=e229]: Forest guardian
+              - button "⚔️ Jedi Master Force wielder" [ref=e230] [cursor=pointer]:
+                - generic [ref=e232]: ⚔️
+                - paragraph [ref=e233]: Jedi Master
+                - paragraph [ref=e234]: Force wielder
+              - button "🚀 Astronaut Space explorer" [ref=e235] [cursor=pointer]:
+                - generic [ref=e237]: 🚀
+                - paragraph [ref=e238]: Astronaut
+                - paragraph [ref=e239]: Space explorer
+              - button "🤖 Cyberpunk Neon city hacker" [ref=e240] [cursor=pointer]:
+                - generic [ref=e242]: 🤖
+                - paragraph [ref=e243]: Cyberpunk
+                - paragraph [ref=e244]: Neon city hacker
+              - button "🪖 Mandalorian Beskar armor warrior" [ref=e245] [cursor=pointer]:
+                - generic [ref=e247]: 🪖
+                - paragraph [ref=e248]: Mandalorian
+                - paragraph [ref=e249]: Beskar armor warrior
+        - button "✨ Generate Costume · upload photo first" [disabled] [ref=e250]
+      - generic [ref=e252]:
+        - generic [ref=e253]: 🎨
+        - generic [ref=e254]:
+          - heading "Your Shichi masterpiece appears here" [level=3] [ref=e255]
+          - paragraph [ref=e256]: Upload any cat photo, pick a costume, and watch the AI work its magic ✨
+        - generic [ref=e257]:
+          - generic [ref=e258]: 🦾 Iron Man
+          - generic [ref=e259]: 🍜 Naruto
+          - generic [ref=e260]: ⚡ Thor
+          - generic [ref=e261]: 🧙 Wizard
+          - generic [ref=e262]: 🚀 Astronaut
+          - generic [ref=e263]: 🐉 Goku
+  - contentinfo [ref=e264]:
+    - paragraph [ref=e265]: 🐱
+    - paragraph [ref=e266]:
+      - strong [ref=e267]: $SHICHI
+      - text: — The cat that raised her paws and went to the moon.
+    - paragraph [ref=e268]: © 2024 $SHICHI · Not financial advice · Always DYOR · Shichi is a real cat and she is perfect.
+  - button "Open Next.js Dev Tools" [ref=e274] [cursor=pointer]:
+    - img [ref=e275]
