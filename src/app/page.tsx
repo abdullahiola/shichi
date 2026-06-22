@@ -64,25 +64,6 @@ export default function HomePage() {
           <button className="btn-outline">🐦 Twitter / X</button>
         </div>
 
-        {/* Live stats bar */}
-        <div className="stats-bar">
-          <div className="stat-item">
-            <span className="stat-value">$0.0042</span>
-            <span className="stat-label">Price</span>
-          </div>
-          <div className="stat-item">
-            <span className="stat-value">1B</span>
-            <span className="stat-label">Total Supply</span>
-          </div>
-          <div className="stat-item">
-            <span className="stat-value">$4.2M</span>
-            <span className="stat-label">Market Cap</span>
-          </div>
-          <div className="stat-item">
-            <span className="stat-value">14.2K</span>
-            <span className="stat-label">Holders</span>
-          </div>
-        </div>
       </section>
 
 
@@ -265,7 +246,7 @@ export default function HomePage() {
       <footer className="footer section">
         <p style={{ fontSize: 20, marginBottom: 12 }}>🐱</p>
         <p>
-          <strong>$SHICHI</strong> — The cat that raised her paws and went to the moon.
+          <strong>$SHICHI</strong> — The cat that raised her paws.
         </p>
         <p style={{ marginTop: 8, fontSize: 12, opacity: 0.5 }}>
           © 2024 $SHICHI · Not financial advice · Always DYOR · Shichi is a real cat and she is perfect.

@@ -17,7 +17,7 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
-  title: "$SHICHI — The Cat That Went to the Moon",
+  title: "$SHICHI",
   description:
     "Shichi is the cutest meme coin on Solana. Community-driven, LP burned, fair launch. Dress Shichi in any AI costume with our built-in studio.",
   keywords: "shichi, meme coin, solana, cat token, crypto, AI costume generator",

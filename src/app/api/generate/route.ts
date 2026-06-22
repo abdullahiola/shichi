@@ -32,12 +32,11 @@ export async function POST(request: NextRequest) {
     const mimeType = imageFile.type || "image/jpeg";
     const dataUrl = `data:${mimeType};base64,${base64}`;
 
-    // Append "looks like a real photo" directive to every prompt
+    // Ultra-conservative: add ONE small accessory, change nothing else
     const photoPrompt =
-      prompt +
-      " The miniature costume should look like a real physical fabric outfit actually placed on the cat. " +
-      "The final image must look like a natural photograph taken with a camera — authentic photo grain, natural ambient lighting, realistic fabric texture and shadows, no glowing effects, no digital art style, no AI illustration aesthetics. " +
-      "Keep the background exactly as it is in the original photo. Do not alter the cat in any way except adding the outfit."
+      "Do not change anything in this photograph. The background, the cat's fur, body, pose, lighting, and environment must remain completely identical to the input image. " +
+      "ONLY add this one small item: " + prompt + ". " +
+      "Everything else in the image must be pixel-perfect identical to the original. Do not redraw, restyle, or modify any part of the existing photo."
 
     console.log(`Generating costume: ${costumeId} with prompt: ${prompt.substring(0, 80)}...`);
 
